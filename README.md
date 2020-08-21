@@ -6,4 +6,4 @@ npm install webpack webpack-cli
 
 #Secondly we create a config file for webpack:
 
-webpack.config
+webpack.config.js
