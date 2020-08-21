@@ -23,6 +23,9 @@ module.exports = {
     },
   };
 
+# After setting up the config file. The next step would be to setp a build script for webpack on package.json: 
+ "build": "webpack"
+ 
 # Then I can now import the generated source from web pack on my index.html file
 <script src="main.js"></script>
 
