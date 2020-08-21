@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/johnakhilomen/bookMarkProject#readme",
   "dependencies": {
+    "cuid": "^2.1.8",
     "jquery": "^3.5.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"

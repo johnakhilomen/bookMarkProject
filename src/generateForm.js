@@ -12,8 +12,8 @@ export let generateTextField = (label, id) => {
    `
 }
 
-export let generateButton = (text, id) => {
-   let button = `<center><button type="submit" id="${id}" name="${id}"> ${text} </button></center>`;
+export let generateButton = (text, id, uid) => {
+   let button = `<center><button type="submit" id="${id}${uid}" name="${id}" data-id="${uid}"> ${text} </button></center>`;
    return button;
 }
 

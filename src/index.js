@@ -1,6 +1,7 @@
 import $ from "jquery";
 import {STORE} from "./store.js";
 import {generateForm, generateTextField, generateButton} from "./generateForm.js";
+import cuid from 'cuid';
 
 export function init() 
 {
@@ -66,11 +67,16 @@ let submitEvent = (evt)=>{
 let loadBookmarkList = () => {
     STORE.forEach((bookmark)=> {
         $("#bookmarkList ul").append(
-            `<li><h2>${bookmark.title}<h2></li>
+            `<div id="${bookmark.id}" data-id=${cuid()}><li><h2>${bookmark.title}<h2></li>
             <li><i>${bookmark.url}</i></li>
-            <li><p>${bookmark.description}</p></li>`
+            <li><p>${bookmark.description}</p></li>
+            <li>${generateButton("Remove", "remove", bookmark.id)}</li></div>`
         )
-    })
+        $(`#remove${bookmark.id}`).click((evt)=>{
+            const id = $(event.currentTarget).attr('data-id');
+            $("div[id="+id+"]").remove();
+        })
+    });
 }
 
 let clearBookmarkList = () => 
