@@ -25,3 +25,6 @@ module.exports = {
 
 # Then I can now import the generated source from web pack on my index.html file
 <script src="main.js"></script>
+
+# and then invoke my init function
+mainLib.init();
