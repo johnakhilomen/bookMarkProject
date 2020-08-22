@@ -38,3 +38,8 @@ label{
 ul{
     list-style: none;
 }
+
+#msgInfo
+{
+    text-align: center;
+}

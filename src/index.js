@@ -1,7 +1,8 @@
 import $ from "jquery";
 import {STORE} from "./store.js";
 import {generateForm, generateTextField, generateButton} from "./generateForm.js";
-import cuid from 'cuid';
+import {loadBookMarks, addBookmark} from "./api";
+import cuid from "cuid";
 
 export function init() 
 {
@@ -32,7 +33,9 @@ let renderHeader = () => {
 
 let renderForm = () =>
 {
-    $("#root").append(`<div class="formComponent"><form action="" method="get" id="addBookmarkForm">
+    $("#root").append(`<div class="formComponent">
+    <h3 id="msgInfo">hgh</h3>
+    <form action="" method="get" id="addBookmarkForm">
     ${generateTextField("Enter title ", "bookmarkTitle")}
     <br>
     ${generateTextField("Enter URL ", "urlDescription")}
@@ -55,17 +58,22 @@ let submitEvent = (evt)=>{
     console.log("Form clicked!");
     let fields = $( ":input" ).serializeArray();
     const object = {
+        id: cuid(),
         title: fields[0]["value"],
         url: fields[1]["value"],
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi auctor felis ac ante tincidunt, nec mattis ante vestibulum. Morbi et arcu eu odio tincidunt feugiat nec sit amet libero. Proin justo nibh, dignissim eu tincidunt porttitor, placerat nec magna. Sed dui leo, sodales a pellentesque a, fermentum tempor mauris. Etiam ac posuere velit, ac euismod risus. Sed libero ante, eleifend laoreet enim eu, consequat egestas elit. Aliquam eget lacus eget ante sollicitudin bibendum sit amet vitae sapien. Etiam congue interdum blandit. Vestibulum ut nulla nisl. Nulla tristique at libero et rutrum. Aliquam in tortor in quam cursus aliquam. Donec ultrices lectus ac molestie dictum. Ut sodales metus in risus varius fermentum."
     }
-    STORE.push(object);
+    //STORE.push(object);
+    addBookmark(object)
     clearBookmarkList();
-    loadBookmarkList();
+    setTimeout(()=>{
+        loadBookmarkList();
+    }, 500);
+    
 }
 
 let loadBookmarkList = () => {
-    STORE.forEach((bookmark)=> {
+    /*STORE.forEach((bookmark)=> {
         $("#bookmarkList ul").append(
             `<div id="${bookmark.id}" data-id=${cuid()}><li><h2>${bookmark.title}<h2></li>
             <li><i>${bookmark.url}</i></li>
@@ -76,7 +84,8 @@ let loadBookmarkList = () => {
             const id = $(event.currentTarget).attr('data-id');
             $("div[id="+id+"]").remove();
         })
-    });
+    });*/
+    loadBookMarks();
 }
 
 let clearBookmarkList = () => 

@@ -20,7 +20,13 @@
   "dependencies": {
     "cuid": "^2.1.8",
     "jquery": "^3.5.1",
+    "node-fetch": "^2.6.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0"
   }
 }
