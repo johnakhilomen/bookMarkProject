@@ -40,10 +40,13 @@ let renderForm = () =>
     <br>
     ${generateTextField("Enter URL ", "urlDescription")}
     <br>
-    ${generateButton("Add Bookmark", "addBookmark")}
+    <center>${generateButton("Add Bookmark", "addBookmark", "default")}${generateButton("Edit Bookmark", "editBookmark", "default")}</center>
     </form>
+    <center>
     <div id="bookmarkList">
-    <ul></ul></div>
+    <ul></ul>
+    </div>
+    </center>
     </div>
     `);
     //Form event 
@@ -51,6 +54,7 @@ let renderForm = () =>
     //Style form
     $("#root").css(rootStyle);
     //$(".formComponent").css(formStyle);
+    $("#editBookmarkdefault").addClass("hideEditbutton");
 }
 
 let submitEvent = (evt)=>{
