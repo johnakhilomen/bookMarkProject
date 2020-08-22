@@ -34,7 +34,7 @@ let renderHeader = () => {
 let renderForm = () =>
 {
     $("#root").append(`<div class="formComponent">
-    <h3 id="msgInfo">hgh</h3>
+    <h3 id="msgInfo"></h3>
     <form action="" method="get" id="addBookmarkForm">
     ${generateTextField("Enter title ", "bookmarkTitle")}
     <br>
@@ -88,7 +88,7 @@ let loadBookmarkList = () => {
     loadBookMarks();
 }
 
-let clearBookmarkList = () => 
+export let clearBookmarkList = () => 
 {
     $("#bookmarkList ul").html("");
 }

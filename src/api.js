@@ -3,6 +3,7 @@ import {endpointURL} from "./params.js"
 import $ from "jquery";
 import cuid from 'cuid';
 import {generateButton} from "./generateForm.js";
+import {clearBookmarkList} from "./index.js"
 
 export let loadBookMarks = () => {
     console.log(endpointURL)
@@ -23,6 +24,10 @@ export let loadBookMarks = () => {
                     const id = $(event.currentTarget).attr('data-id');
                     //$("div[id="+id+"]").remove();
                     deleteBookmark(id);
+                    clearBookmarkList();
+                    setTimeout(()=>{
+                        loadBookMarks();
+                    }, 700)
                 })
             });
         });
