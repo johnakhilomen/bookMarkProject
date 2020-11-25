@@ -14,7 +14,7 @@ The entry file will be the main source (which imports and loads other source fil
 Then Web pack will generate a source file named "main.js" during build.
 I also configured a path to where webpack will generate and save "main.js".
 
-module.exports = {
+```module.exports = {
     entry: './src/index.js',
     output: {
       filename: 'main.js',
@@ -22,6 +22,7 @@ module.exports = {
       library: 'mainLib',
     },
   };
+  ```
 
 # After setting up the config file. The next step would be to setp a build script for webpack on package.json: 
  "build": "webpack"
